@@ -82,7 +82,7 @@ drop if (clave1 == 4170650) //Man did not have a partner
 /*====================================================================
                         3: Keeping variables
 ====================================================================*/
-gen double hh_id = hhclust * 10000000 + hhnumbv * 1000 + hvnumint * 100
+gen double hh_id = (hhclust * 10000000) + (hhnumbv * 1000) + (hvnumint * 100)
 format     hh_id %20.0g
 lab var    hh_id "Household ID"
 
