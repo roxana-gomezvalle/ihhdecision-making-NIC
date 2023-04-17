@@ -33,7 +33,7 @@ lab var    level_educ_men "Man's level of education"
 
 *---------------------------1.2: Man's years of schooling
 replace m112g = . if (m112g == 9)
-recode  m112n (0/4 = 0) (5/6 8 = 6)(7 = 9) (9/10 = 11) (11 = 16) (else = .) ///
+recode  m112n (0/4 = 0) (5/6 8 = 6) (7 = 9) (9/10 = 11) (11 = 16) (else = .) ///
     , gen (grade_school)
 
 gen     years_schooling_men = grade_school + m112g
@@ -72,9 +72,9 @@ clonevar men706 = m706
 replace  men706 = . if (clave1 == 2050480)
 replace  men706 = 3 if (clave1 == 4080350)
 recode   men706 (1 = 1 "Women alone") (3 = 2 "Jointly decision") ///
-                (2 96 = 3 "Someone else")(else = .), gen (decision_m706)
+                (2 96 = 3 "Someone else") (else = .), gen (decision_m706)
 _crcslbl m706 decision_m706
-lab var  decision_m706 "Decision-making variables"
+lab var       decision_m706 "Decision-making variables"
 
 drop if (clave1 == 2310570) //Man did not have a partner
 drop if (clave1 == 4170650) //Man did not have a partner
