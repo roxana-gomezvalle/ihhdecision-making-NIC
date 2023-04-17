@@ -56,7 +56,7 @@ keep if ((dCP == 1) | (dCP == -1))
 *---------------------------1.3: Creating unique household ID
 rename *, lower
 
-gen double hh_id = hhclust * 10000000 + hhnumbv * 1000 + hvnumint * 100
+gen double hh_id = (hhclust * 10000000) + (hhnumbv * 1000) + (hvnumint * 100)
 format     hh_id %20.0g
 lab var    hh_id "Household ID"
 
