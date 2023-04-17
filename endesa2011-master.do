@@ -44,7 +44,7 @@ recode qhs3p04 (1/5 15 = 1) (6/14 = 0) (else = .), gen (nuclear_members)
 bys hh_id: egen nuclear_hh = mean (nuclear_members)
 replace         nuclear_hh = 2 if ((nuclear_hh != 1) & !missing(nuclear_hh))
 lab var         nuclear_hh "Household composition"
-recode          nuclear_hh (1 = 0)(2 = 1)(else = .)
+recode          nuclear_hh (1 = 0) (2 = 1) (else = .)
 lab define      nuclear_hh 1 "Extended household" 0 "Nuclear  household (ref.)" ///
     , replace
 lab values      nuclear_hh nuclear_hh
