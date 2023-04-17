@@ -95,7 +95,7 @@ lab define income_labor 0 "Unemployed" 1 "Employed", replace
 lab values income_labor income_labor
 
 *-------------------------1.9: Income relative contribution
-recode qw732 (1/2 = 2 "Low") (3 = 3 "Half")(4/5 = 4 "High") (else = .) ///
+recode qw732 (1/2 = 2 "Low") (3 = 3 "Half") (4/5 = 4 "High") (else = .) ///
     , gen (income_contribution)
 
 replace    income_contribution = 1 if (income_labor == 0)
@@ -165,7 +165,7 @@ lab var child_hh "Children living in the household"
 /*====================================================================
                         2: Keeping variables
 ====================================================================*/
-gen double hh_id = hhclust*10000000 + hhnumbv*1000 + hvnumint*100
+gen double hh_id = (hhclust * 10000000) + (hhnumbv * 1000) + (hvnumint * 100)
 format     hh_id %20.0g
 lab var    hh_id "Household ID"
 
