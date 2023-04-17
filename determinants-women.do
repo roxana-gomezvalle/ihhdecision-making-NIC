@@ -22,7 +22,7 @@ rename *, lower
 numlabel, add
 
 *------------------------1.1: Region of residence
-recode     region (1 = 1)(2 = 3)(3 = 4), gen (region_4)
+recode     region (1 = 1) (2 = 3) (3 = 4), gen (region_4)
 replace    region_4 = 2 if ((region_4 == 1) & (hhdepar != 55))
 lab define region_4 1 "Managua (capital), ref." 2 "Rest Pacific" 3 "Central" ///
                     4 "Caribbean", replace
@@ -34,7 +34,7 @@ recode area (1 = 0 "Urban (ref.)") (2 = 1 "Rural"), gen (rural)
 lab var rural "Area of residence"
 
 *-------------------------1.3: Woman's level of education
-recode qw112n (0/3 = 1)(4 = 2)(5/8 = 3)(9/11 = 4)(else = .), gen (level_educ)
+recode qw112n (0/3 = 1) (4 = 2) (5/8 = 3) (9/11 = 4) (else = .), gen (level_educ)
 replace    level_educ =1 if (qw108 == 2)
 lab define level_educ 1 "No formal education (ref.)" 2 "Primary education" ///
                       3 "Secondary education" 4 "Higher than secondary", replace
@@ -53,9 +53,9 @@ lab var years_schooling "Years of schooling"
 recode  qw115 (1 = 1  "No religious (ref.)") (2 = 2 "Catholic") ///
     (3/96 = 3 "Other") (else = .), gen (religion)
 	
-replace religion = 3 if ((clave1 == 6140640) | (clave1 == 6140840) ///
+replace religion = 3 if ((clave1 == 6140640) | (clave1 == 6140840)    ///
     | (clave1 == 6140840) | (clave1 == 7011060) | (clave1 == 7210440) ///
-	| (clave1 == 7210490) | (clave1 == 7240850))
+    | (clave1 == 7210490) | (clave1 == 7240850))
 lab var religion "Woman's religion"
 
 *-------------------------1.6: Woman's ethnic group
@@ -84,8 +84,8 @@ recode qw703 (1 = 0 "No (ref.)") (2/max = 1 "Yes") (else = .) ///
 lab var remarried_women "Woman is remarried"
 
 *-------------------------1.8: Income labour perceived
-recode qw719(1 = 1) (2 = 0) (else = .), gen (aux1)
-recode qw720 (1 = 1)(2 = 0)(else = .), gen (aux2)
+recode qw719 (1 = 1) (2 = 0) (else = .), gen (aux1)
+recode qw720 (1 = 1) (2 = 0) (else = .), gen (aux2)
 
 egen       income_labor = rsum (aux1 aux2)
 drop aux1 aux2
@@ -113,7 +113,7 @@ recode qw808 (1 = 1) (2 = 0) (else = .), gen (role_intervention)
 
 local g_roles qw809a qw809b qw809c qw809d qw809e
 foreach g_role of local g_roles {
-    recode `g_role' (1 = 0)(2 = 1)(else = .), gen (role_`g_role')
+    recode `g_role' (1 = 0) (2 = 1) (else = .), gen (role_`g_role')
 }
 
 factor role_head role_obedience role_familyprobl role_sr role_qw809a ///
