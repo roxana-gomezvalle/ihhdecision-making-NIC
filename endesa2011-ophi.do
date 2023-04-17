@@ -26,7 +26,7 @@ global path_out "C:\Users\User\OneDrive\IOB - Publication\Output data"
 use "$path_in/ENDESA2011_Historia de nacimientos.dta", clear
 rename _all, lower
 
-gen double ind_id = hhclust*10000000 + hhnumbv*1000 + hvnumint*100 + qw221
+gen double ind_id = hhclust * 10000000 + hhnumbv * 1000 + hvnumint * 100 + qw221
 format ind_id %20.0g
 label var ind_id "Individual ID"
 codebook ind_id
