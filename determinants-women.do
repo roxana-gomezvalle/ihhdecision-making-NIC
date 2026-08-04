@@ -87,18 +87,18 @@ lab var remarried_women "Woman is remarried"
 recode qw719 (1 = 1) (2 = 0) (else = .), gen (aux1)
 recode qw720 (1 = 1) (2 = 0) (else = .), gen (aux2)
 
-egen       income_labor = rsum (aux1 aux2)
+egen       income_labour = rsum (aux1 aux2)
 drop aux1 aux2
-replace    income_labor = 0 if ((qw724 == 6) | (qw724 == 7) | (qw724 == 98))
-lab var    income_labor "Have an income labor"
-lab define income_labor 0 "Unemployed" 1 "Employed", replace
-lab values income_labor income_labor
+replace    income_labour = 0 if ((qw724 == 6) | (qw724 == 7) | (qw724 == 98))
+lab var    income_labour "Have an income labour"
+lab define income_labour 0 "Unemployed" 1 "Employed", replace
+lab values income_labour income_labour
 
 *-------------------------1.9: Income relative contribution
 recode qw732 (1/2 = 2 "Low") (3 = 3 "Half") (4/5 = 4 "High") (else = .) ///
     , gen (income_contribution)
 
-replace    income_contribution = 1 if (income_labor == 0)
+replace    income_contribution = 1 if (income_labour == 0)
 lab define income_contribution 1 "No contribution (ref.)" 2 "Low contribution" ///
                                3 "Half contribution" 4 "High contribution", replace
 lab values income_contribution income_contribution
@@ -171,7 +171,7 @@ lab var    hh_id "Household ID"
 
 keep hh_id clave1 hhclust hhnumbv hvnumint pesomef region region_4 area rural ///
      age age_interval level_educ years_schooling religion ethnic_group ///
-	 remarried_women income_labor income_contribution role_obedience role_head ///
+	 remarried_women income_labour income_contribution role_obedience role_head ///
 	 role_sr role_qw809a role_qw809b role_qw809c role_qw809d role_qw809e ///
 	 role_index Restriction_contraceptive child_hh 
 
