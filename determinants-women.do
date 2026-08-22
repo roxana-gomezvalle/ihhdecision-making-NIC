@@ -124,7 +124,7 @@ note: role_familyprobl and role_sr dropped. The codes below represent the ///
       different compositions tested. 
 
 alpha role_head role_obedience role_qw809a role_qw809b role_qw809c role_qw809d ///
-    role_qw809d role_qw809e, i s c //0.7143
+    role_qw809e, i s c //0.7143
 alpha role_obedience role_qw809a role_qw809b role_qw809c role_qw809d ///
     role_qw809e, i s c //0.7158
 alpha role_head role_qw809a role_qw809b role_qw809c role_qw809d role_qw809e ///
