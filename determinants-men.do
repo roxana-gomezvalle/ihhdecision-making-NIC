@@ -49,12 +49,12 @@ lab var     age_men "Man's age"
 recode m117 (1 = 1) (2 = 0) (else = .), gen (aux1)
 recode m118 (1 = 1) (2 = 0) (else = .), gen (aux2)
 
-egen       income_labor_m = rsum (aux1 aux2)
-lab var    income_labor_m "Employment status of spouse"
-lab define income_labor_m 0 "Unemployed" 1 "Employed", replace
-lab values income_labor_m income_labor_m
+egen       income_labour_m = rsum (aux1 aux2)
+lab var    income_labour_m "Employment status of spouse"
+lab define income_labour_m 0 "Unemployed" 1 "Employed", replace
+lab values income_labour_m income_labour_m
 drop aux1 aux2
-replace    income_labor_m = 0 if ((m122 == 6) | (m122 == 7))
+replace    income_labour_m = 0 if ((m122 == 6) | (m122 == 7))
 	
 /*====================================================================
                         2: Dependent variables
@@ -87,7 +87,7 @@ format     hh_id %20.0g
 lab var    hh_id "Household ID"
 
 keep  hh_id clave1 hhclust hhnumbv hvnumint pesohef level_educ_men ///
-    years_schooling_men age_men income_labor_m decision_m702a decision_m702b ///
+    years_schooling_men age_men income_labour_m decision_m702a decision_m702b ///
     decision_m702c decision_m702d decision_m702e decision_m702f decision_m702g ///
 	decision_m706
 order hh_id, first
