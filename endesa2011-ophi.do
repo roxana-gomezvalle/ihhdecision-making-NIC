@@ -34,7 +34,7 @@ codebook ind_id
 drop if qw225==2
 gen child_KR=1
 
-**-----------------1.2: Estimating nutritional information
+**-----------------1.2: Organizing paths
 *Indicating direction of ado file
 adopath + "$path_ado\Children under 5"
 
@@ -48,7 +48,7 @@ lab var datalib "Directory for datafiles"
 gen str30 datalab = "children_nutri_nic" 
 lab var datalab "Working file"
 
-**-----------------1.3: Checking variables
+**-----------------1.3: Checking and creating base variables
 *Sex
 tab qw223, miss
 tab qw223, nol 
