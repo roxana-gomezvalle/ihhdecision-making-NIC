@@ -96,9 +96,9 @@ tab qw1007 qw1006 if qw1006>1, miss
 desc height 
 summ height
 
-*Type of measure: Standung vs Lying
+*Type of measure: Standing vs Lying
 codebook qw1008
-gen measure = "l" if qw1008==1 
+gen measure = "l" if qw1008==1 	
 replace measure = "h" if qw1008==2 
 replace measure = " " if qw1008==0 | qw1008==9 | qw1008==.
 desc measure
