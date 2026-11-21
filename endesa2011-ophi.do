@@ -122,7 +122,7 @@ igrowup_restricted reflib datalib datalab gender age ageunit weight height ///
 use "$path_ado\Children under 5\children_nutri_nic_z_rc.dta", clear 
 
 **-----------------1.6: Identifying children undernourished
-gen	underweight = (_zwei < -2.0) 
+gen underweight = (_zwei < -2.0) 
 replace underweight = . if _zwei == . | _fwei==1
 lab var underweight  "Child is undernourished (weight-for-age) 2sd - WHO"
 tab underweight, miss
@@ -286,7 +286,7 @@ summ weight
 
 *Height (Cm)
 codebook qw1012, tab (1000)
-gen	height = qw1012 
+gen height = qw1012 
 summ height
 
 *OEDEMA
@@ -318,12 +318,12 @@ who2007 reflib datalib datalab gender age_month ageunit weight height oedema sw
 ****-----------------3.5: Using the z-scores
 use "$path_ado/Young 5-19/girl_nutri_nic_z.dta", clear
 
-gen	z_bmi = _zbfa
+gen z_bmi = _zbfa
 replace z_bmi = . if _fbfa==1 
 lab var z_bmi "z-score bmi-for-age WHO"
 
 ****-----------------3.6:Identifying malnourished for MPI
-gen	low_bmiage = (z_bmi < -2.0) 
+gen low_bmiage = (z_bmi < -2.0) 
 replace low_bmiage = . if z_bmi==.
 lab var low_bmiage "Teenage low bmi 2sd - WHO"
 
@@ -335,7 +335,7 @@ sort ind_id
 save "$path_out/NIC11-12_IR_girls.dta", replace
 
 /*====================================================================
-                 4: Children mortality in men questionnary
+                 4: Children mortality in men questionnaire
 ====================================================================*/
 use "$path_in/ENDESA2011_Cuestionario del hombre.dta", clear
 rename _all, lower
